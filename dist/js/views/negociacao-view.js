@@ -1,25 +1,29 @@
 import { View } from "./view.js";
 export class NegociacaoView extends View {
+    constructor() {
+        super(...arguments);
+        this.formatarData = (data) => new Intl.DateTimeFormat().format(data);
+    }
     template(model) {
         return `
-            <table class="table table-hover table-bordered">
-                <thead>
-                    <th>DATA</th>
-                    <th>QUANTIDADE</th>
-                    <th>VALOR</th>
-                </thead>
-                <tbody>
-                ${model.lista().map(negociacao => {
+        <table class="table table-hover table-bordered">
+            <thead>
+                <th>DATA</th>
+                <th>QUANTIDADE</th>
+                <th>VALOR</th>
+            </thead>
+            <tbody>
+            ${model.lista().map(negociacao => {
             return `
-                    <tr>
-                      <td>${new Intl.DateTimeFormat().format(negociacao.data)}</td>
-                      <td>${negociacao._quantidade}</td>
-                      <td>${negociacao._valor}</td>
-                    <tr/>
-                  `;
+                <tr>
+                  <td>${this.formatarData(negociacao.data)}</td>
+                  <td>${negociacao._quantidade}</td>
+                  <td>${negociacao._valor}</td>
+                <tr/>
+              `;
         }).join('')}
-                </tbody>
-            </table>
-        `;
+            </tbody>
+        </table>
+    `;
     }
 }

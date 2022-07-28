@@ -5,7 +5,4 @@ export class View {
     update(model) {
         this.element.innerHTML = this.template(model);
     }
-    template(model) {
-        throw Error("Classe filha precisa implementar o método template.");
-    }
 }

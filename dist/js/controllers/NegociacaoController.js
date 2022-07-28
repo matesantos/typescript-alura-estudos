@@ -7,6 +7,10 @@ export class NegociacaoControler {
         this.negociacoes = new Negociacoes();
         this.negociacaoView = new NegociacaoView("#negociacaoView");
         this.mensagemView = new MensagemView("#mensagemView");
+        this.atualizaView = () => {
+            this.negociacaoView.update(this.negociacoes);
+            this.mensagemView.update("Negociação adicionada com sucesso.");
+        };
         this.inputData = document.querySelector("#data");
         this.inputQuantidade = document.querySelector("#quantidade");
         this.inputValor = document.querySelector("#valor");
@@ -15,9 +19,8 @@ export class NegociacaoControler {
     adiciona() {
         const negociacao = this.criarNegociacao();
         this.negociacoes.adicionar(negociacao);
-        this.negociacaoView.update(this.negociacoes);
-        this.mensagemView.update("Negociação adicionada com sucesso.");
         this.limparFormulario();
+        this.atualizaView();
     }
     criarNegociacao() {
         const reg = /-/g;
