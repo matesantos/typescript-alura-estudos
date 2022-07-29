@@ -4,9 +4,7 @@ export class MensagemView extends View<string> {
 
   protected template(model: string): string {
     return `
-           <p class="ae=lert alert-info">${model}</p>
+           <p class="alert alert-info">${model}</p>
         `;
   }
-
- 
 }
