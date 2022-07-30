@@ -1,3 +1,4 @@
+import { Negociacao } from "../models/negociacao.js";
 import { Negociacoes } from "../models/negociacoes.js";
 import { View } from "./view.js";
 
@@ -18,8 +19,8 @@ export class NegociacaoView extends View<Negociacoes>{
               return `
                 <tr>
                   <td>${this.formatarData(negociacao.data)}</td>
-                  <td>${negociacao._quantidade}</td>
-                  <td>${negociacao._valor}</td>
+                  <td>${negociacao.quantidade}</td>
+                  <td>${negociacao.valor}</td>
                 <tr/>
               `
             }).join('')}

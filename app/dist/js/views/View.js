@@ -3,18 +3,21 @@ export class View {
         this.escapar = false;
         const elemento = document.querySelector(seletor);
         if (elemento) {
-            this.element = elemento;
+            this.elemento = elemento;
         }
         else {
-            throw Error(`Seletor ${elemento} não existe no documento!`);
+            throw Error(`Seletor ${seletor} não existe no DOM. Verifique`);
         }
-        escapar && (this.escapar = escapar);
+        if (escapar) {
+            this.escapar = escapar;
+        }
     }
     update(model) {
         let template = this.template(model);
         if (this.escapar) {
-            template = template.replace(/<script>[\s\S]*?<\/script>/g, '');
+            template = template
+                .replace(/<script>[\s\S]*?<\/script>/, '');
         }
-        this.element.innerHTML = this.template(model);
+        this.elemento.innerHTML = template;
     }
 }
