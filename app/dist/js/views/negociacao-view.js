@@ -6,24 +6,24 @@ export class NegociacaoView extends View {
     }
     template(model) {
         return `
-        <table class="table table-hover table-bordered">
-            <thead>
-                <th>DATA</th>
-                <th>QUANTIDADE</th>
-                <th>VALOR</th>
-            </thead>
-            <tbody>
-            ${model.lista().map(negociacao => {
+      <table class="table table-hover table-bordered">
+        <thead>
+            <th>DATA</th>
+            <th>QUANTIDADE</th>
+            <th>VALOR</th>
+        </thead>
+        <tbody>
+        ${model.lista().map(negociacao => {
             return `
-                <tr>
-                  <td>${this.formatarData(negociacao.data)}</td>
-                  <td>${negociacao._quantidade}</td>
-                  <td>${negociacao._valor}</td>
-                <tr/>
-              `;
+            <tr>
+              <td>${this.formatarData(negociacao.data)}</td>
+              <td>${negociacao.quantidade}</td>
+              <td>${negociacao.valor}</td>
+            <tr/>
+          `;
         }).join('')}
-            </tbody>
-        </table>
+        </tbody>
+      </table>
     `;
     }
 }
