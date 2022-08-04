@@ -1,3 +1,4 @@
+import { LogarTempoDeExecucao } from '../decorators/logarTempoDeExecucao.js';
 import { DiasDaSemana } from '../enums/dias-da-semana.js';
 import { Negociacao } from '../models/negociacao.js';
 import { Negociacoes } from '../models/negociacoes.js';
@@ -19,8 +20,8 @@ export class NegociacaoController {
     this.negociacoesView.update(this.negociacoes);
   }
 
+  @LogarTempoDeExecucao()
   public adiciona(): void {
-    const t1 = performance.now();
     const negociacao = Negociacao.criaDe(
       this.inputData.value,
       this.inputQuantidade.value,
@@ -36,8 +37,6 @@ export class NegociacaoController {
     this.negociacoes.adiciona(negociacao);
     this.limparFormulario();
     this.atualizaView();
-    const t2 = performance.now();
-    console.log(`O tempo de execução do método adicionar: ${(t2-t1)/1000}`);
   }
 
   private ehDiaUtil(data: Date) {
