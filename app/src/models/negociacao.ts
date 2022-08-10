@@ -1,14 +1,12 @@
 import { Imprimivel } from "../utils/imprimivel.js";
 
-export class Negociacao extends Imprimivel {
+export class Negociacao implements Imprimivel {
   
   constructor(
     private _data: Date,
     public readonly quantidade: number,
     public readonly valor: number
-  ) { 
-    super()
-  }
+  ) { }
 
   get volume(): number {
     return this.quantidade * this.valor;
@@ -25,6 +23,12 @@ export class Negociacao extends Imprimivel {
         Quantidade: ${this.quantidade},
         Valor: ${this.valor}
       `;
+  }
+
+  public ehIgual(negociacao: Negociacao): boolean {
+    return this.data.getDate() === negociacao.data.getDate()
+        && this.data.getMonth() === negociacao.data.getMonth()
+        && this.data.getFullYear() === negociacao.data.getFullYear()
   }
 
   public static criaDe(dataString: string, quantidadeString: string, valorString: string): Negociacao {
