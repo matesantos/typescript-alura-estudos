@@ -41,7 +41,7 @@ export class NegociacaoController {
     }
 
     this.negociacoes.adiciona(negociacao);
-    //imprimir(negociacao, this.negociacoes);
+    imprimir(negociacao, this.negociacoes);
     this.limparFormulario();
     this.atualizaView();
   }
