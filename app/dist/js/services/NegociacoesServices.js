@@ -17,3 +17,4 @@ export class NegociacoesService {
         });
     }
 }
+//# sourceMappingURL=NegociacoesServices.js.map

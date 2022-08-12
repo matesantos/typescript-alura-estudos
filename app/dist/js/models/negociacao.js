@@ -31,3 +31,4 @@ export class Negociacao {
         return new Negociacao(date, quantidade, valor);
     }
 }
+//# sourceMappingURL=negociacao.js.map

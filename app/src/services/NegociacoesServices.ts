@@ -1,4 +1,4 @@
-import { NegociacoesDoDia } from "../interfaces/NegociacaoDoDia.js";
+import { NegociacoesDoDia } from "../interfaces/negociacaoDoDia.js";
 import { Negociacao } from "../models/negociacao.js";
 
 export class NegociacoesService {

@@ -16,3 +16,4 @@ export class View {
         console.log(`O tempo de execução do método update: ${(t2 - t1) / 1000}`);
     }
 }
+//# sourceMappingURL=view.js.map
